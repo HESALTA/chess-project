@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Opening</title>
+    <style>
+        /* Basic Reset: Remove default margin and padding for all elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and Layout: Set font, background, and text color */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #222;
+            color: white;
+            padding: 20px 0;
+            position: sticky; /* Keeps the header fixed at the top while scrolling */
+            top: 0;
+            z-index: 1000;
+            width: 100%; /* Full width */
+            perspective: 1000px; /* Add perspective for 3D effect */
+        }
+
+        /* Navbar Container: Align logo and links */
+        .navbar {
+            display: flex;
+            justify-content: space-between; /* Space between logo and links */
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto; /* Centers the content */
+            padding: 0 20px;
+        }
+
+        /* Logo Image: Size and spacing for logo */
+        .logo img {
+            width: 50px; /* Increased logo size */
+            height: auto;
+            margin-right: 10px; /* Space between logo and title */
+        }
+
+        /* Navbar Title Styling */
+        .navbar h1 {
+            font-size: 28px; /* Larger title font size */
+        }
+
+        /* Navbar Links Styling */
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px; /* Horizontal space between links */
+            font-size: 18px;
+            position: relative;
+            padding: 5px;
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        /* Navbar Links Hover Effect */
+        .navbar-links a:hover {
+            color: #ffcc00; /* Change text color to yellow */
+            transform: scale(1.1); /* Slightly enlarge the link on hover */
+        }
+
+        /* Main Heading Styling */
+        h1 {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 36px;
+            color: #333;
+        }
+
+        /* Paragraph Styling */
+        p {
+            font-size: 18px;
+            margin: 20px 10%;
+            text-align: justify; /* Justified text alignment */
+        }
+
+        /* Image Gallery Container */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap; /* Wrap images to the next line */
+            justify-content: center;
+            gap: 20px; /* Gap between images */
+            margin-top: 30px;
+        }
+
+        /* Individual Gallery Item Styling */
+        .gallery-item {
+            text-align: center;
+            width: 200px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; /* Smooth hover effect */
+        }
+
+        /* Gallery Image Styling */
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+        }
+
+        /* Gallery Image Hover Effect */
+        .gallery-item:hover img {
+            transform: scale(1.1) rotate(5deg); /* Enlarge and rotate image */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Increase shadow effect */
+        }
+
+        /* Gallery Item Title Styling */
+        .gallery-item p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* Tooltip for Navbar Links */
+        .navbar-link[data-tooltip]:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #222;
+            color: white;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            opacity: 0.8;
+            visibility: visible;
+        }
+
+        /* 3D Transform for Header */
+        header {
+            perspective: 1000px; /* Gives the 3D effect a sense of depth */
+        }
+
+        /* 3D Transform for Navbar */
+        .navbar {
+            transform: rotateY(10deg); /* Slight rotation to create 3D effect */
+            transition: transform 0.5s ease-in-out;
+        }
+
+        /* Reset Navbar Rotation on Hover */
+        header:hover .navbar {
+            transform: rotateY(0deg); /* Reset rotation on hover */
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            /* Stack logo and links vertically for smaller screens */
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 5%;
+            }
+
+            /* Stack navbar links vertically */
+            .navbar-links {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 15px;
+            }
+
+            .navbar-link {
+                font-size: 16px;
+                padding: 12px;
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Adjust gallery layout for mobile */
+            .gallery {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .gallery-item {
+                width: 90%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header with Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="./king.jpg" alt="Chess Logo" class="navbar-logo">
+            <h1>THE CHESS WEBSITE</h1>
+        </div>
+        <nav class="navbar-links">
+            <a href="index.html" class="navbar-link" data-tooltip="Go to Home">Home</a>
+            <a href="#about" class="navbar-link" data-tooltip="Background of chess">Background</a>
+            <a href="#tutorials" class="navbar-link" data-tooltip="Chess Tutorials">Tutorials</a>
+            <a href="#contact" class="navbar-link" data-tooltip="Contact Me">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <h1>Chess Openings</h1>
+    <p>The first few moves in the chess opening lay the foundation for every chess game...</p>
+
+    <!-- Gallery of Chess Openings -->
+    <div class="gallery">
+        <div class="gallery-item">
+            <a href="#adelaide">
+                <img src="adelaide-counter-gambit.png" alt="Adelaide Counter Gambit">
+                <p>Adelaide Counter Gambit</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="#albin">
+                <img src="albin counter gambit.jpg" alt="Albin Counter-Gambit">
+                <p>Albin Counter-Gambit</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="#alekhine">
+                <img src="alekhinedefensebig.jpg" alt="Alekhine Defense">
+                <p>Alekhine Defense</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="#apocalypse">
+                <img src="apocalypse-attack-featured.jpg" alt="Apocalypse Attack">
+                <p>Apocalypse Attack</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="#baltic">
+                <img src="baltic-featured.jpg" alt="Baltic Defense">
+                <p>Baltic Defense</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="#belgrade">
+                <img src="belgrade-gambit.jpg" alt="Belgrade Gambit">
+                <p>Belgrade Gambit</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="#benoni">
+                <img src="the-benoni-defense.jpg" alt="Benoni Defense">
+                <p>Benoni Defense</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="#birds">
+                <img src="the-birds-opening.jpg" alt="Bird’s Opening">
+                <p>Bird’s Opening</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="#bishop">
+                <img src="bishops-chess-opening.png" alt="Bishop’s Opening">
+                <p>Bishop’s Opening</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="#knights">
+                <img src="black-knights-tango-big.jpg" alt="Black Knights Tango">
+                <p>Black Knights Tango</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="#four-knights">
+                <img src="four-knights-game-featured1.jpg" alt="Four Knights Game">
+                <p>Four Knights Game</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="#french-defense">
+                <img src="French-Defense.jpg" alt="French Defense">
+                <p>French Defense</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="#fried-liver">
+                <img src="fried-liver-attack-big.jpg" alt="Fried Liver Attack">
+                <p>Fried Liver Attack</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="#halloween">
+                <img src="HalloweenGambit.jpg" alt="Halloween Gambit">
+                <p>Halloween Gambit</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="#hungarian">
+                <img src="Hungarian Defence.webp" alt="Hungarian Defense">
+                <p>Hungarian Defense</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="#kings-gambit">
+                <img src="KingsGambit.jpg" alt="King’s Gambit">
+                <p>King’s Gambit</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
